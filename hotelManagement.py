@@ -1,5 +1,7 @@
 import random
 import emoji
+
+# Class to handle all the processes.
 class hotelManagement():
     def __init__(self):
         self.id = 0
@@ -13,7 +15,8 @@ class hotelManagement():
         self.customers = {}
         self.rent = 0
         self.foodPrice = 0
-
+        
+#     Method to register customer.
     def addCustomer(self):
         self.name = input("Enter name : ")
         self.phoneNumber = input("Enter phone Number : ")
@@ -28,6 +31,7 @@ class hotelManagement():
         self.customers[self.id] = data
         self.roomRent()
 
+#   Method to calculate rent of the room.
     def roomRent(self):
         print("1. Class A --> 10000")
         print("2. Class B --> 8000")
@@ -43,6 +47,7 @@ class hotelManagement():
         self.rent = cost*noNights
         print("Your choosen room rent is : ",self.rent)
 
+#     Method to calculate total food cost
     def foodPurchased(self):
         print("1. Veg Thali -->500\n2. Non veg thali --> 550\n3. Breakfast --> 250\n4. Drinks --> 100\n5. Dessert-->200\n6. Exit")
         Continue = True
@@ -64,6 +69,7 @@ class hotelManagement():
         self.foodPrice = self.foodPrice + cost*quantity
         print(f"Total food cost = {self.foodPrice}Rs\n")
 
+#     Method to create bill, calculate total fare of customer
     def costEstimation(self):
         if self.name != " ":
             print("*** Final Bill *** ")
@@ -88,9 +94,11 @@ class hotelManagement():
         for i in self.customers:
             print(self.customers[i],"\n")
 
+# Main method from where execution starts.
 if __name__ == '__main__':
         hotel = hotelManagement()
         Continue = True
+#       A menucard to display all the available options.
         while(Continue):
             print("1. Enter customer details")
             print("2. Calculate room rent")
